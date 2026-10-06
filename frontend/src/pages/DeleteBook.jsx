@@ -12,7 +12,7 @@ const DeleteBook = () => {
   const {enqueueSnackbar} = useSnackbar();
   const handleDeleteBook = () =>{
     setLoading(true);
-    axios.delete(`http://localhost:5555/books/${id}`).then(()=>{
+    axios.delete(`https://backend-ytwj.onrender.com/books/${id}`).then(()=>{
       setLoading(false);
       enqueueSnackbar('book deleted successfully',{variant:"success"});
       navigate('/');
