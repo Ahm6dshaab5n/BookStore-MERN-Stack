@@ -20,11 +20,15 @@ app.get("/",(req,res)=>{
 
 app.use('/books',booksRoute);
 
-mongoose.connect(mongoDBURL).then(()=>{
-  console.log("database connected successfully");
-  app.listen(PORT,()=>{
-  console.log(`app is listening on port ${PORT}`);
-});
-}).catch((error)=>{
-  console.log(error);
-});
+mongoose.connect(mongoDBURL)
+  .then(() => {
+    console.log("database connected successfully");
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`app is listening on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("MongoDB connection error:");
+    console.error(error);
+  });
