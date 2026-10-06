@@ -7,11 +7,7 @@ import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
 
 
-app.use(cors({
-  origin : 'http://localhost:5173',
-  methods : ['GET','POST','PUT','DELETE'],
-  allowedHeaders : ['Content-Type'],
-}));
+app.use(cors());
 
 // middleware for parsing request body
 
