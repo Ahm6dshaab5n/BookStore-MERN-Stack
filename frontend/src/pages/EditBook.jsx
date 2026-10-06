@@ -15,7 +15,7 @@ const EditBooks = () => {
   const {id} = useParams();
   useEffect(()=>{
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`).then((res)=>{
+    axios.get(`https://backend-ytwj.onrender.com/books/${id}`).then((res)=>{
       setAuthor(res.data.author);
       setPublishYear(res.data.publishYear);
       setTitle(res.data.title);
@@ -33,7 +33,7 @@ const EditBooks = () => {
       publishYear,
     };
     setLoading(true);
-    axios.put(`http://localhost:5555/books/${id}`,data).then(()=>{
+    axios.put(`https://backend-ytwj.onrender.com/books/${id}`,data).then(()=>{
       setLoading(false);
       enqueueSnackbar('book edited successfully', {variant : 'success'});
       navigate('/');
